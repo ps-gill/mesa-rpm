@@ -402,6 +402,7 @@ export RUSTFLAGS="%build_rustflags"
   -Dbuild-tests=false \
   -Dselinux=true \
   -Dandroid-libbacktrace=disabled \
+  -Dvideo-codecs=vc1dec,h264dec,h264enc,h265dec,h265enc \
   %{nil}
 %meson_build
 
