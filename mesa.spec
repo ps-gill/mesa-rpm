@@ -138,14 +138,14 @@ BuildRequires:  pkgconfig(libomxil-bellagio)
 %endif
 BuildRequires:  pkgconfig(libelf)
 BuildRequires:  pkgconfig(libglvnd) >= 1.3.2
-BuildRequires:  llvm-devel >= 7.0.0
+BuildRequires:  llvm16-devel
 %if 0%{?with_opencl}
-BuildRequires:  clang-devel
+BuildRequires:  clang16-devel
 BuildRequires:  bindgen
 BuildRequires:  rust-packaging
 BuildRequires:  pkgconfig(libclc)
 BuildRequires:  pkgconfig(SPIRV-Tools)
-BuildRequires:  pkgconfig(LLVMSPIRVLib)
+BuildRequires:  pkgconfig(LLVMSPIRVLib) < 17.0
 %endif
 %if %{with valgrind}
 BuildRequires:  pkgconfig(valgrind)
@@ -419,6 +419,7 @@ export RUSTFLAGS="%build_rustflags"
   -Dlmsensors=disabled \
 %endif
   -Dandroid-libbacktrace=disabled \
+  -Dvideo-codecs=vc1dec,h264dec,h264enc,h265dec,h265enc \
   %{nil}
 %meson_build
 
